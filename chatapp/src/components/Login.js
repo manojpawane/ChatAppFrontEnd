@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { login } from './UserFunctions'
 
-class login extends Component {
+class Login extends Component {
     constructor() {
         super()
         this.state = {
@@ -26,7 +26,7 @@ class login extends Component {
 
         login(user).then(res => {
             if (res) {
-                this.props.history.push('./profile')
+                this.props.history.push('./register')
             }
         })
     }

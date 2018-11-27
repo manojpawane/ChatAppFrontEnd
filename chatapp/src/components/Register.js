@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { register } from './UserFunctions'
 
-class register extends Component {
+class Register extends Component {
     constructor() {
         super()
         this.state = {
