@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { login } from './UserFunctions'
 
+/// this component is use to display and manipulate login
 class Login extends Component {
     constructor() {
         super()

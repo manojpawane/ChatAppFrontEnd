@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
+/// Navbar is component which displays and manipulate the navigation bar
 class Navbar extends Component {
     logOut(e) {
         e.preventDefault()

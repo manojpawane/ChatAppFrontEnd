@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 
+//// Landing page is showing welcome on home page
 class Landing extends Component{
     render(){
         return (

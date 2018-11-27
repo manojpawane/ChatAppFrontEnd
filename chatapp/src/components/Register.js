@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { register } from './UserFunctions'
 
+//// component for user registration
 class Register extends Component {
     constructor() {
         super()

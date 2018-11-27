@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-
+/// ajax call to register user details
 export const register = newUser => {
     return axios
         .post('user/create', {
@@ -13,6 +13,7 @@ export const register = newUser => {
         })
 }
 
+/// ajax call for login
 export const login = user => {
     return axios
         .post('user/login', {
