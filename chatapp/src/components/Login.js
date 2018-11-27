@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { login } from './UserFunctions'
+import { login } from '../actions/UserFunctions'
 
 /// this component is use to display and manipulate login
 class Login extends Component {
@@ -27,7 +27,7 @@ class Login extends Component {
 
         login(user).then(res => {
             if (res) {
-                this.props.history.push('./register')
+                this.props.history.push('/dashboard')
             }
         })
     }
