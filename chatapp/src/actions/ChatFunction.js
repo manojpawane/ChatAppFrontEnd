@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const singleChatD = sendMessage => {
+export const SingleChatD = sendMessage => {
     return axios
         .post('chat/assistant', {
             question: sendMessage.message,

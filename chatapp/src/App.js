@@ -5,7 +5,7 @@ import Landing from './components/Landing'
 import Login from './components/Login'
 import Register from './components/Register'
 import Dashboard from './components/Dashboard';
-import singleChat from './components/singleChat';
+import SingleChat from './components/SingleChat';
 
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login}/>
             <Route exact path="/dashboard" component={Dashboard}/>
-            <Route exact path="/singleChat" component={singleChat}/>
+            <Route path="singleChat" component={SingleChat}/>
           </div>
         </div>
       </Router>

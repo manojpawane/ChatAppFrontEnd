@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {  singleChatD } from '../actions/ChatFunction'
+import {  SingleChatD } from '../actions/ChatFunction'
 import jwt_decode from 'jwt-decode'
 
-class singleChat extends Component {
+class SingleChat extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -32,9 +32,9 @@ class singleChat extends Component {
             message: this.state.message
         }
 
-        singleChatD(sendMessage).then(res => {
+        SingleChatD(sendMessage).then(res => {
             if (res) {
-                this.state.answer = res;
+                this.setState.answer = res;
             }
         })
     }
@@ -43,7 +43,7 @@ class singleChat extends Component {
         return (
             <div className="container">
                 <form noValidate onSubmit={this.onSubmit}>
-                    <div className="jumbotr on mt-5">
+                    <div className="jumbotron mt-5">
                         <legend>Enter your question.</legend>
                         <input value={message} onChange={this.handleChange} />
                         <p>{this.state.answer}</p>
@@ -57,4 +57,4 @@ class singleChat extends Component {
     }
 }
 
-export default singleChat
+export default SingleChat

@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
 import Login from '../components/Login'
-import SingleChat from '../components/singleChat'
+import {Link} from "react-router-dom"
 
 //// Landing page is showing welcome on home page
 class Dashboard extends Component {
     render() {
 
         const userLogin = (
-            <div className="col-sm-8 mx-auto"> <button align="center" onClick={<SingleChat/>} className="btn btn-primary">
-                Assistant
-                            </button>
-                <button align="center" onClick={multiuserChat} className="btn btn-success">
-                    MultiUser
-                            </button>
-                <h1> Select Assistant for static chat and Multiuser to chat with your freind</h1>
+            <div className="col-sm-8 mx-auto"> 
+            <Link to="singleChat"><button align="center" className="btn btn-primary">Assistant
+            </button></Link>
+                
+                            
+            <Link to="singleChat"><button align="center" className="btn btn-success">Multiuser
+            </button></Link>
+                <h1> Select Assistant for static chat and Multiuser to chat with your friend</h1>
             </div>
         )
 
@@ -27,9 +28,4 @@ class Dashboard extends Component {
     }
 }
 
-
-function multiuserChat(){
-    
-        return (<singleChat/>)
-}
 export default Dashboard
