@@ -3,55 +3,67 @@ import {  SingleChatD } from '../actions/ChatFunction'
 import jwt_decode from 'jwt-decode'
 
 class SingleChat extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            message: '',
+            question: '',
             name: '', answer: ''
-        };
-        this.handleChange = this.handleChange.bind(this);
+        }
+        this.onChange = this.onChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
-    }
-
-    handleChange(e) {
-        this.setState({ message: e.target.value });
     }
 
     componentDidMount() {
         const token = localStorage.usertoken
         const decoded = jwt_decode(token);
         this.setState({
-            name: decoded.name
+            name: decoded.email
         })
     }
+
+    onChange(e) {
+        this.setState({[e.target.name]:e.target.value})
+    }
+
     onSubmit(e) {
         e.preventDefault()
-
         const sendMessage = {
             name: this.state.name,
-            message: this.state.message
+            question: this.state.question
         }
-
         SingleChatD(sendMessage).then(res => {
             if (res) {
-                this.setState.answer = res;
+                this.setState({answer:res}) ;
             }
         })
     }
+
     render() {
-        const message = this.state.message;
         return (
             <div className="container">
-                <form noValidate onSubmit={this.onSubmit}>
-                    <div className="jumbotron mt-5">
-                        <legend>Enter your question.</legend>
-                        <input value={message} onChange={this.handleChange} />
-                        <p>{this.state.answer}</p>
+               <div className="row">
+                    <div className="col-md-6 mt-5 mx-auto">
+                        <form noValidate onSubmit={this.onSubmit} answer = {this.state.answer}>
+                            <div className="form-group">
+                                <label htmlFor="question">Question</label>
+                                <input type="text"
+                                    className="form-control"
+                                    name="question"
+                                    placeholder="Enter question"
+                                    value={this.setState.question}
+                                    onChange={this.onChange} />
+                            </div>
+                            <button type="submit" className="btn btn-primary">
+                                Send
+                            </button>
+                        </form>
                     </div>
-                    <button type="submit" className="btn btn-primary">
-                        Send
-                </button>
-                </form>
+                    
+                </div>
+                <div className="row">
+                <div className="col-md-6 mt-5 mx-auto">
+                <p>Response: {this.state.answer}</p></div>
+                </div>
             </div>
         )
     }
