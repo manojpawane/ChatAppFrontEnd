@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+/// ajax call to send question and get response in answer
 export const SingleChatD = sendMessage => {
     return axios
         .post('chat/assistant', {
@@ -13,30 +14,32 @@ export const SingleChatD = sendMessage => {
             console.log(err)
         })
 
-    }
+}
 
-    export const MultiChatD = sendMessage => {
-        return axios
-            .post('chat/multiuser', {
-                receiverEmail: sendMessage.receiverEmail,
-                senderId:sendMessage.senderId,
-                message:sendMessage.message
-            })
-            .then(res => {
-                return res.data
-            })
-            .catch(err => {
-              throw err
-            })
-    
-        }
-
-    export const ReceiveChat = sendMes =>{
-        return axios.get('chat/'+sendMes.senderId)
-        .then(res =>{
+/// use to send the message to the user
+export const MultiChatD = sendMessage => {
+    return axios
+        .post('chat/multiuser', {
+            receiverEmail: sendMessage.receiverEmail,
+            senderId: sendMessage.senderId,
+            message: sendMessage.message
+        })
+        .then(res => {
             return res.data
         })
-        .catch(err =>{
+        .catch(err => {
             throw err
         })
-    }
+
+}
+
+///use to receive message
+export const ReceiveChat = sendMes => {
+    return axios.get('chat/' + sendMes.senderId)
+        .then(res => {
+            return res.data
+        })
+        .catch(err => {
+            throw err
+        })
+}
