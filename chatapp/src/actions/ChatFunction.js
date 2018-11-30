@@ -15,4 +15,28 @@ export const SingleChatD = sendMessage => {
 
     }
 
+    export const MultiChatD = sendMessage => {
+        return axios
+            .post('chat/multiuser', {
+                receiverEmail: sendMessage.receiverEmail,
+                senderId:sendMessage.senderId,
+                message:sendMessage.message
+            })
+            .then(res => {
+                return res.data
+            })
+            .catch(err => {
+              throw err
+            })
     
+        }
+
+    export const ReceiveChat = sendMes =>{
+        return axios.get('chat/'+sendMes.senderId)
+        .then(res =>{
+            return res.data
+        })
+        .catch(err =>{
+            throw err
+        })
+    }

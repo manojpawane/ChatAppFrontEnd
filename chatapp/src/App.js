@@ -6,6 +6,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Dashboard from './components/Dashboard';
 import SingleChat from './components/SingleChat';
+import MulitUserChat from './components/MultiUserChat';
 
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route exact path="/login" component={Login}/>
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route path="/singleChat" component={SingleChat}/>
+            <Route path="/multiuserchat" component={MulitUserChat}/>
           </div>
         </div>
       </Router>

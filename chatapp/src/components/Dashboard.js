@@ -12,7 +12,7 @@ class Dashboard extends Component {
             </button></Link>
                 
                             
-            <Link to="singleChat"><button align="center" className="btn btn-success">Multiuser
+            <Link to="multiuserchat"><button align="center" className="btn btn-success">Multiuser
             </button></Link>
                 <h1> Select Assistant for static chat and Multiuser to chat with your friend</h1>
             </div>
